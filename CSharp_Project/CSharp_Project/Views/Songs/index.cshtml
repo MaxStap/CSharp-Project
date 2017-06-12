@@ -1,0 +1,120 @@
+﻿@using System.Data;
+@using System;
+@using System.Xml;
+@using System.Linq;
+@using System.Xml.Linq;
+@using System.Collections.Generic;
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    }
+
+@foreach (DataRow dr in ds.Tables[0].Rows)
+{}
+
+
+<h2>XML Playlist</h2>
+
+using System;
+using System.Xml;
+using System.Linq;
+using System.Xml.Linq;
+using System.Collections.Generic;
+
+public class Program
+{
+
+	  public class People
+        {
+            public string Name { get; set; }
+            public string Age { get; set; }
+            public IList<Hobbies>
+    Hobby { get; set; }
+    }
+    public class Hobbies
+    {
+    public string Title { get; set; }
+    public string Description { get; set; }
+    }
+
+    public static void Main()
+    {
+
+    string xml = @"   <playlist>
+        <song>
+            <name>Mr Brown</name>
+            <age>40</age>
+            <hobby>
+                <title>Eating</title>
+                <description>eats a lot</description>
+            </hobby>
+            <hobby>
+                <title>Sleeping</title>
+                <description>sleeps a lot</description>
+            </hobby>
+        </song>
+        <person>
+            <name>Mr White</name>
+            <age>40</age>
+            <hobby>
+                <title>Skiing</title>
+                <description>more details on this</description>
+            </hobby>
+            <hobby>
+                <title>Football</title>
+                <description>watches football</description>
+            </hobby>
+        </person>
+    </playlist>";
+
+
+
+
+    XElement element=XElement.Parse(xml);
+
+
+    var person = from a in element.Descendants("person")
+    select new People
+    {
+    Name = a.Element("name").Value,
+    Age = a.Element("age").Value,
+    Hobby = a.Descendants("hobby")
+    .Select(x => new Hobbies
+    {
+    Title = x.Element("title").Value,
+    Description = x.Element("description").Value
+    }).ToList()
+    };
+
+    foreach(var d in person)
+    {
+
+    Console.WriteLine(String.Format("Name = {0}:Age={1}:Hobbies:{2}",d.Name,d.Age,d.Hobby.Count()));
+
+    }
+
+    }
+    }
+
+    DataSet ds = new DataSet("Playlist");
+
+    DataTable dtSongs = new DataTable("song");
+
+    DataTable dcId = new DataColumn("id");
+    DataTable dcArtist = new DataColumn("artist");
+    DataTable dcSong = new DataColumn("song");
+    DataTable dcYear = new DataColumn("year");
+    DataTable dcGenre = new DataColumn("category");
+    DataTable dcTime = new DataColumn ("duration")
+
+
+    ds.Tables.Add(dtSongs);
+    dtSongs.Columns.Add(dcId);
+    dtSongs.Columns.Add(dcArtist);
+    dtSongs.Columns.Add(dcSong);
+    dtSongs.Columns.Add(dcYear);
+    dtSongs.Columns.Add(dcGenre);
+    dtSongs.Columns.Add(dcTime);
+
+    ds.ReadXml(Server.MapPath("../App_Data/songs.xml"));
