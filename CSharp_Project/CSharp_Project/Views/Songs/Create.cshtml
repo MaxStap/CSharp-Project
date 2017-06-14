@@ -1,0 +1,30 @@
+﻿@using System.Data;
+@{
+    DataSet ds = Session["xmlDataSet"] as DataSet;
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (IsPost)
+    {
+        DataRow dr = ds.Tables[0].NewRow();
+
+        dr["id"] = Request.Form["id"];
+        dr["artist"] = Request.Form["artist"];
+        dr["song"] = Request.Form["song"];
+        dr["duration"] = Request.Form["duration"];
+        dr["category"] = Request.Form["category"];
+        dr["year"] = Request.Form["year"];
+
+        ds.Tables[0].Rows.Add(dr);
+
+        ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
+    }
+
+
+
+
+}
+
+<h2>Create</h2>
+
+<form action="post"></form>

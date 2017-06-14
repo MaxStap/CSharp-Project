@@ -13,5 +13,10 @@ namespace CSharp_Project.Controllers
         {
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
-}
+ }
