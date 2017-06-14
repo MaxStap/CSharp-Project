@@ -28,6 +28,7 @@
     Session["xmlDataSet"] = ds;
 
     }
+
 <table>
     @foreach (DataRow dr in ds.Tables[0].Rows)
     {
@@ -39,5 +40,7 @@
             <td>@dr["category"]</td>
             <td>@dr["year"]</td>
         </tr>
+
+        <td><a href="Delete?id=@dr["id"]">Verwijderen</a></td>
     }
 </table>

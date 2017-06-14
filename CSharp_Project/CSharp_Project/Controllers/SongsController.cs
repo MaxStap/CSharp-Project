@@ -18,5 +18,10 @@ namespace CSharp_Project.Controllers
         {
             return View();
         }
+
+        public ActionResult Delete()
+        {
+            return View();
+        }
     }
  }
