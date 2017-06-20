@@ -13,16 +13,16 @@ namespace CSharp_Project.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult xml()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Title = "Playlist xml";
+            ViewBag.Message = "Onze Top Songs";
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult json()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Onze Top Songs";
 
             return View();
         }
