@@ -1,0 +1,46 @@
+﻿@using System.Data;
+
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = new DataSet("playlist");
+
+    DataTable dtSongs = new DataTable("songs");
+
+    DataColumn dcId = new DataColumn("id");
+    DataColumn dcArtist = new DataColumn("artist");
+    DataColumn dcSong = new DataColumn("song");
+    DataColumn dcDuration = new DataColumn("duration");
+    DataColumn dcCategory = new DataColumn("category");
+    DataColumn dcYear = new DataColumn("year");
+
+    ds.Tables.Add(dtSongs);
+    dtSongs.Columns.Add(dcId);
+    dtSongs.Columns.Add(dcArtist);
+    dtSongs.Columns.Add(dcSong);
+    dtSongs.Columns.Add(dcDuration);
+    dtSongs.Columns.Add(dcCategory);
+    dtSongs.Columns.Add(dcYear);
+
+    ds.ReadXml(Server.MapPath(@"..\App_Data\songs.xml"));
+
+    Session["xmlDataSet"] = ds;
+
+    }
+
+<table>
+    @foreach (DataRow dr in ds.Tables[0].Rows)
+    {
+        <tr>
+            <td>@dr["id"]</td>
+            <td>@dr["artist"]</td>
+            <td>@dr["song"]</td>
+            <td>@dr["duration"]</td>
+            <td>@dr["category"]</td>
+            <td>@dr["year"]</td>
+        </tr>
+
+        <td><a href="Delete?id=@dr["id"]">Verwijderen</a></td>
+    }
+</table>
