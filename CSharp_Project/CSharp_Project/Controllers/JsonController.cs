@@ -6,19 +6,17 @@ using System.Web.Mvc;
 
 namespace CSharp_Project.Controllers
 {
-    public class SongsController : Controller
+    public class JsonController : Controller
     {
-        // GET: Songs
+        // GET: Json
         public ActionResult Index()
         {
             return View();
         }
-
         public ActionResult Create()
         {
             return View();
         }
-
         public ActionResult Delete()
         {
             return View();
@@ -28,4 +26,4 @@ namespace CSharp_Project.Controllers
             return View();
         }
     }
- }
+}

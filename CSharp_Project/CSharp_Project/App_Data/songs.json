@@ -1,0 +1,46 @@
+﻿{
+  "playlist": {
+    "songs": [
+      {
+        "id": "1",
+        "artist": "Vengaboys",
+        "song": "Boom, Boom, Boom, Boom!!",
+        "duration": "3:36",
+        "category": "Pop",
+        "year": "1998"
+      },
+      {
+        "id": "2",
+        "artist": "PSY",
+        "song": "Gangnam Style",
+        "duration": "4:12",
+        "category": "Pop",
+        "year": "2012"
+      },
+      {
+        "id": "3",
+        "artist": "Metallica",
+        "song": "Enter Sandman",
+        "duration": "5:30",
+        "category": "Heavy Metal",
+        "year": "1991"
+      },
+      {
+        "id": "4",
+        "artist": "Rammstein",
+        "song": "Du Hast",
+        "duration": "3:55",
+        "category": "Rock",
+        "year": "1997"
+      },
+      {
+        "id": "5",
+        "artist": "Laserkraft 3D",
+        "song": "Nein Mann",
+        "duration": "3:51",
+        "category": "Pop",
+        "year": "2010"
+      }
+    ]
+  }
+}
