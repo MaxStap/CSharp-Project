@@ -1,26 +1,2 @@
-﻿@using System.Data;
-@{
-    ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
-    DataSet ds = Session["xmlDataSet"] as DataSet;
-
-    string id = Request.QueryString["id"];
-    if (IsPost)
-    {
-        DataRow[] drArray = ds.Tables[0].Select("id='" + id + "'");
-        drArray[0].Delete();
-        ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
-        Response.Redirect("Index");
-    }
-}
-<h2>Delete</h2>
-
-    <form action="" method="post">
-Weet u zeker dat u deze song wil verwijderen?<br/>
-<input type="submit" value="Ja" />
-<a href="Index">Nee</a>
-
-</form>
-
+﻿
 
