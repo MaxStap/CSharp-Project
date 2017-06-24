@@ -1,15 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+<?xml version="1.0" standalone="yes"?>
 <playlist>
-
   <songs>
     <id>1</id>
-    <artist>Vengaboys</artist>
+    <artist>Vengaboyz</artist>
     <song>Boom, Boom, Boom, Boom!!</song>
     <duration>3:36</duration>
     <category>Pop</category>
     <year>1998</year>
   </songs>
-
   <songs>
     <id>2</id>
     <artist>PSY</artist>
@@ -18,7 +16,6 @@
     <category>Pop</category>
     <year>2012</year>
   </songs>
-
   <songs>
     <id>3</id>
     <artist>Metallica</artist>
@@ -27,7 +24,6 @@
     <category>Heavy Metal</category>
     <year>1991</year>
   </songs>
-
   <songs>
     <id>4</id>
     <artist>Rammstein</artist>
@@ -36,13 +32,12 @@
     <category>Rock</category>
     <year>1997</year>
   </songs>
-
   <songs>
     <id>5</id>
     <artist>Laserkraft 3D</artist>
     <song>Nein Mann</song>
     <duration>3:51</duration>
     <category>Pop</category>
-    <year>2010</year>
+    <year>2011</year>
   </songs>
 </playlist>

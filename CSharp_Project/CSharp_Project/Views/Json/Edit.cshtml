@@ -1,0 +1,64 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    DataSet ds = Session["xmlDataSet"] as DataSet;
+
+    string id = Request.QueryString["id"];
+    DataRow[] drArray = ds.Tables[0].Select("id='" + id + "'");
+
+    if (IsPost)
+    {
+        drArray[0]["id"] = Request.Form["id"];
+        drArray[0]["artist"] = Request.Form["artist"];
+        drArray[0]["song"] = Request.Form["song"];
+        drArray[0]["duration"] = Request.Form["duration"];
+        drArray[0]["category"] = Request.Form["category"];
+        drArray[0]["year"] = Request.Form["year"];
+        
+
+        ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
+        Response.Redirect("Index");
+    }
+}
+<h2>Edit</h2>
+
+<form method="POST">
+    <table>
+        <tr>
+            <td>id:</td>
+            <td><input type="text" name="id" placeholder="id" value="@drArray[0]["id"]"></td>
+        </tr>
+
+        <tr>
+            <td>artist:</td>
+            <td><input type="text" name="artist" placeholder="artist" value="@drArray[0]["artist"]"></td>
+        </tr>
+
+        <tr>
+            <td>songnaam:</td>
+            <td><input type="text" name="song" placeholder="songnaam" value="@drArray[0]["song"]"></td>
+        </tr>
+
+        <tr>
+            <td>duur:</td>
+            <td><input type="text" name="duration" placeholder="duur" value="@drArray[0]["duration"]"></td>
+        </tr>
+
+        <tr>
+            <td>categorie:</td>
+            <td><input type="text" name="category" placeholder="categorie" value="@drArray[0]["category"]"></td>
+        </tr>
+
+        <tr>
+            <td>jaar:</td>
+            <td><input type="text" name="year" placeholder="jaar" value="@drArray[0]["year"]"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="verzend" value="verzend"></td>
+        </tr>
+
+    </table>
+</form>
