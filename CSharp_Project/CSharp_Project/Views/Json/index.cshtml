@@ -1,1 +1,24 @@
-﻿
+﻿@using System.Data;
+@using CSharp_Project.Models;
+@{
+
+    string json = System.IO.File.ReadAllText(@"..\App_Data\songs.json");
+    songs tmp = JsonConvert.DeserializeObject<songs>(json);
+    foreach (string typeStr in tmp.type[0])
+    {
+       
+    }
+}
+<br />
+<h2>Json lijst</h2>
+<br />
+<br />
+<br />
+@{
+    <a href="create">Toevoegen</a>
+}
+<br />
+<br />
+<table>
+   
+</table>
