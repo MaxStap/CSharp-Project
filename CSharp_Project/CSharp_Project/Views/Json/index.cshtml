@@ -1,5 +1,6 @@
 ﻿@using System.Data;
 @using CSharp_Project.Models;
+@using Newtonsoft.Json;
 @{
 
     string json = System.IO.File.ReadAllText(@"..\App_Data\songs.json");
@@ -7,7 +8,7 @@
     foreach (string typeStr in tmp.type[0])
     {
        
-    }
+    }   
 }
 <br />
 <h2>Json lijst</h2>
