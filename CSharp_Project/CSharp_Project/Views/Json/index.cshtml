@@ -3,12 +3,18 @@
 @using Newtonsoft.Json;
 @{
 
-    string json = System.IO.File.ReadAllText(@"..\App_Data\songs.json");
-    songs tmp = JsonConvert.DeserializeObject<songs>(json);
-    foreach (string typeStr in tmp.type[0])
+    string json = System.IO.File.ReadAllText(Server.MapPath(@"~\App_Data\songs.json"));
+    Songs songs = JsonConvert.DeserializeObject<Songs>(json);
+
+    foreach (Song song in songs.songs)
     {
-       
-    }   
+        string id = songs.id;
+        string artist = songs.artist;
+        string song = songs.song;
+        string duration =  songs.duration;
+        string category = songs.category;
+        string year = songs.year;
+    }
 }
 <br />
 <h2>Json lijst</h2>
