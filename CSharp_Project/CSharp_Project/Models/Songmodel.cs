@@ -18,7 +18,6 @@ namespace CSharp_Project.Models
         public string duration;
         public string category;
         public string year;
-
     }
 
 }
