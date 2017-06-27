@@ -207,7 +207,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\main.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Songmodel.cs" />
+    <Compile Include="Models\Songs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
