@@ -1,16 +1,17 @@
 ﻿@using System.Data;
+@using CSharp_Project.Models;
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    DataSet ds = Session["xmlDataSet"] as DataSet;
-
+    Songs song = new Songs();
     string id = Request.QueryString["id"];
+    DataRow dr = song.GetSong(id);
+
+
     if (IsPost)
     {
-        DataRow[] drArray = ds.Tables[0].Select("id='" + id + "'");
-        drArray[0].Delete();
-        ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
+
+        song.DeleteSong(id);
         Response.Redirect("Index");
     }
 }
