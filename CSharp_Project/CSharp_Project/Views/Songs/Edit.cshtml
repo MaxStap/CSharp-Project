@@ -10,13 +10,17 @@
 
     if (IsPost)
     {
+        string a = Request.Form["link"].ToString();
+        string b = a.Replace("watch?v=", "embed/");
+
         drArray[0]["id"] = Request.Form["id"];
         drArray[0]["artist"] = Request.Form["artist"];
         drArray[0]["song"] = Request.Form["song"];
         drArray[0]["duration"] = Request.Form["duration"];
         drArray[0]["category"] = Request.Form["category"];
         drArray[0]["year"] = Request.Form["year"];
-        
+        drArray[0]["link"] = b + (b.IndexOf("autoplay") < 0 ? "?autoplay=1" : "");
+
 
         ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
         Response.Redirect("Index");
@@ -54,6 +58,10 @@
         <tr>
             <td>jaar:</td>
             <td><input type="text" name="year" placeholder="jaar" value="@drArray[0]["year"]"></td>
+        </tr>
+        <tr>
+            <td>link:</td>
+            <td><input type="text" name="link" placeholder="link" value="@drArray[0]["link"]"></td>
         </tr>
         <tr>
             <td></td>

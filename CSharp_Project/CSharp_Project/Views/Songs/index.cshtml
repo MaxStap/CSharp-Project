@@ -56,6 +56,7 @@
     DataColumn dcDuration = new DataColumn("duration");
     DataColumn dcCategory = new DataColumn("category");
     DataColumn dcYear = new DataColumn("year");
+    DataColumn dcLink = new DataColumn("link");
 
     ds.Tables.Add(dtSongs);
     dtSongs.Columns.Add(dcId);
@@ -64,12 +65,32 @@
     dtSongs.Columns.Add(dcDuration);
     dtSongs.Columns.Add(dcCategory);
     dtSongs.Columns.Add(dcYear);
+    dtSongs.Columns.Add(dcLink);
 
     ds.ReadXml(Server.MapPath(@"..\App_Data\songs.xml"));
 
     Session["xmlDataSet"] = ds;
 
     }
+<script type="text/javascript"
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+</script>
+<script>
+    $(document).ready(function () {
+        $(".frame-class").click(function (event) {
+            event.preventDefault();
+
+            $("#frame").attr("src", $(this).attr("href"));
+
+            $("#frame").css("display", "block");
+        });
+    });
+
+</script>
+
+
 <br />
 <h2>xml lijst</h2>
 <br />
@@ -95,6 +116,7 @@
 
         <td><a href="Delete?id=@dr["id"]">Verwijderen</a></td>
         <td><a href="Edit?id=@dr["id"]">Edit</a></td>
-        <td><a href="https://www.youtube.com/results?search_query=@dr["song"]">luister naar je nummer</a></td>
+        <td><a href="@dr["link"]" class="frame-class" target="frame">luister naar je nummer</a></td>
     }
 </table>
+<iframe src="" id="frame" style="display:none;"></iframe>

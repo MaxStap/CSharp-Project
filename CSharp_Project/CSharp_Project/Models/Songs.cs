@@ -8,7 +8,7 @@ namespace CSharp_Project.Models
     
     public class Songs
     {
-       public List<Song> songs { get; set; }
+       public List <Song> songs { get; set; }
     }
 
     public class Song

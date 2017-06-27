@@ -4,24 +4,7 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    if (IsPost)
-    {
-        DataRow dr = ds.Tables[0].NewRow();
-
-        dr["id"] = Request.Form["id"];
-        dr["artist"] = Request.Form["artist"];
-        dr["song"] = Request.Form["song"];
-        dr["duration"] = Request.Form["duration"];
-        dr["category"] = Request.Form["category"];
-        dr["year"] = Request.Form["year"];
-
-        ds.Tables[0].Rows.Add(dr);
-
-        ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
-    }
-
-
-
+   
 
 }
 
@@ -59,9 +42,39 @@
             <td><input type="text" name="year" placeholder="jaar"></td>
         </tr>
         <tr>
+            <td>link:</td>
+            <td><input type="text" name="link" placeholder="Link"></td>
+        </tr>
+        <tr>
             <td></td>
             <td><input type="submit" name="verzend" value="verzend"></td>
         </tr>
 
     </table>
 </form>
+@{
+   
+    if (IsPost)
+    {
+        DataRow dr = ds.Tables[0].NewRow();
+
+        string a = Request.Form["link"].ToString();
+        string b = a.Replace("watch?v=", "embed/");
+
+        dr["id"] = Request.Form["id"];
+        dr["artist"] = Request.Form["artist"];
+        dr["song"] = Request.Form["song"];
+        dr["duration"] = Request.Form["duration"];
+        dr["category"] = Request.Form["category"];
+        dr["year"] = Request.Form["year"];
+        dr["link"] = b + "?autoplay=1";
+
+        ds.Tables[0].Rows.Add(dr);
+
+        ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
+    }
+
+
+
+
+}

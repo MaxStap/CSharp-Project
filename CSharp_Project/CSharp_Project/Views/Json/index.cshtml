@@ -8,12 +8,12 @@
 
     foreach (Song song in songs.songs)
     {
-        string id = songs.id;
-        string artist = songs.artist;
-        string song = songs.song;
-        string duration =  songs.duration;
-        string category = songs.category;
-        string year = songs.year;
+        string id = song.id;
+        string artist = song.artist;
+        string nummer = song.song;
+        string duration =  song.duration;
+        string category = song.category;
+        string year = song.year;
     }
 }
 <br />
@@ -27,5 +27,20 @@
 <br />
 <br />
 <table>
-   
+    @foreach (Song song in songs.songs)
+    {
+        <tr>
+            <td>@song.id</td>
+            <td>@song.artist</td>
+            <td>@song.song</td>
+            <td>@song.duration</td>
+            <td>@song.category</td>
+            <td>@song.year</td>
+        </tr>
+
+        
+        <td><a href="Delete?id=song.id">Verwijderen</a></td>
+        <td><a href="Edit?id=song.id">Edit</a></td>
+        <td><a href="" class="frame-class" target="frame">luister naar je nummer</a></td>
+    }
 </table>

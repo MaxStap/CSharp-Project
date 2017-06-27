@@ -1,1 +1,54 @@
-﻿
+﻿string id = @"{
+  'id': 'C-sharpcorner',
+  'Description': 'Share Knowledge'
+}";
+
+BlogSites bsObj = JsonConvert.DeserializeObject<BlogSites>
+    (json);
+
+    Response.Write(bsObj.Name);
+
+
+
+<form method="POST">
+    <table>
+        <tr>
+            <td>id:</td>
+            <td><input type="text" name="id" placeholder="id" value="id"></td>
+        </tr>
+
+        <tr>
+            <td>artist:</td>
+            <td><input type="text" name="artist" placeholder="artist" value="artist"></td>
+        </tr>
+
+        <tr>
+            <td>songnaam:</td>
+            <td><input type="text" name="song" placeholder="songnaam" value="song"></td>
+        </tr>
+
+        <tr>
+            <td>duur:</td>
+            <td><input type="text" name="duration" placeholder="duur" value="duration"></td>
+        </tr>
+
+        <tr>
+            <td>categorie:</td>
+            <td><input type="text" name="category" placeholder="categorie" value="category"></td>
+        </tr>
+
+        <tr>
+            <td>jaar:</td>
+            <td><input type="text" name="year" placeholder="jaar" value="year"></td>
+        </tr>
+        <tr>
+            <td>link:</td>
+            <td><input type="text" name="link" placeholder="link" value="link"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="verzend" value="verzend"></td>
+        </tr>
+
+    </table>
+</form>
