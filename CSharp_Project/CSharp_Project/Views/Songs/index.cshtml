@@ -1,96 +1,14 @@
 ﻿@using System.Data;
-
+@using CSharp_Project.Models;
 @{
     ViewBag.Title = "Xml";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
+    Songs song = new Songs();
+    DataRow[] drArray = song.GetSongs();
 
-    //Songs songs = new Songs(Server.MapPath(@"..\App_Data\songs.xml"));
-    //DataRow[] drArray = songs.GetSongs();
-
-    /*
-
-    public class Songs
-    {
-        DataSet ds;
-
-        public Songs(string path)
-        {
-            ds = new DataSet("playlist");
-
-            DataTable dtSongs = new DataTable("songs");
-
-            DataColumn dcId = new DataColumn("id");
-            DataColumn dcArtist = new DataColumn("artist");
-            DataColumn dcSong = new DataColumn("song");
-            DataColumn dcDuration = new DataColumn("duration");
-            DataColumn dcCategory = new DataColumn("category");
-            DataColumn dcYear = new DataColumn("year");
-
-            ds.Tables.Add(dtSongs);
-            dtSongs.Columns.Add(dcId);
-            dtSongs.Columns.Add(dcArtist);
-            dtSongs.Columns.Add(dcSong);
-            dtSongs.Columns.Add(dcDuration);
-            dtSongs.Columns.Add(dcCategory);
-            dtSongs.Columns.Add(dcYear);
-
-            ds.ReadXml(path);
-        }
-
-        public DataRow[] GetSongs()
-        {
-            return ds.Tables[0].Rows;
-        }
-    }
-
-    */
-
-    DataSet ds = new DataSet("playlist");
-
-    DataTable dtSongs = new DataTable("songs");
-
-    DataColumn dcId = new DataColumn("id");
-    DataColumn dcArtist = new DataColumn("artist");
-    DataColumn dcSong = new DataColumn("song");
-    DataColumn dcDuration = new DataColumn("duration");
-    DataColumn dcCategory = new DataColumn("category");
-    DataColumn dcYear = new DataColumn("year");
-    DataColumn dcLink = new DataColumn("link");
-
-    ds.Tables.Add(dtSongs);
-    dtSongs.Columns.Add(dcId);
-    dtSongs.Columns.Add(dcArtist);
-    dtSongs.Columns.Add(dcSong);
-    dtSongs.Columns.Add(dcDuration);
-    dtSongs.Columns.Add(dcCategory);
-    dtSongs.Columns.Add(dcYear);
-    dtSongs.Columns.Add(dcLink);
-
-    ds.ReadXml(Server.MapPath(@"..\App_Data\songs.xml"));
-
-    Session["xmlDataSet"] = ds;
 
     }
-<script type="text/javascript"
-        src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous">
-</script>
-<script>
-    $(document).ready(function () {
-        $(".frame-class").click(function (event) {
-            event.preventDefault();
-
-            $("#frame").attr("src", $(this).attr("href"));
-
-            $("#frame").css("display", "block");
-        });
-    });
-
-</script>
-
-
 <br />
 <h2>xml lijst</h2>
 <br />
@@ -102,7 +20,7 @@
 <br />
 <br />
 <table>
-    @foreach (DataRow dr in ds.Tables[0].Rows)
+    @foreach (DataRow dr in drArray)
     {
         <tr>
             <td>@dr["id"]</td>
@@ -116,7 +34,6 @@
 
         <td><a href="Delete?id=@dr["id"]">Verwijderen</a></td>
         <td><a href="Edit?id=@dr["id"]">Edit</a></td>
-        <td><a href="@dr["link"]" class="frame-class" target="frame">luister naar je nummer</a></td>
+        <td><a href="https://www.youtube.com/results?search_query=@dr["song"]">luister naar je nummer</a></td>
     }
 </table>
-<iframe src="" id="frame" style="display:none;"></iframe>
