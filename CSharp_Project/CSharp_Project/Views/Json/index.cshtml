@@ -4,7 +4,7 @@
 @{
 
     string json = System.IO.File.ReadAllText(Server.MapPath(@"~\App_Data\songs.json"));
-    Songs songs = JsonConvert.DeserializeObject<Songs>(json);
+    Songz songs = JsonConvert.DeserializeObject<Songz>(json);
 
     foreach (Song song in songs.songs)
     {

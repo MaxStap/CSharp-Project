@@ -2,42 +2,47 @@
 <playlist>
   <songs>
     <id>1</id>
-    <artist>Vengaboyz</artist>
-    <song>Boom, Boom, Boom, Boom!!</song>
-    <duration>3:36</duration>
-    <category>Pop</category>
-    <year>1998</year>
+    <artist>Luis Fonsi -  ft. Daddy Yankee</artist>
+    <song>Despacito</song>
+    <duration>4:41</duration>
+    <category>-</category>
+    <year>2017</year>
+    <link>https://www.youtube.com/embed/kJQP7kiw5Fk?autoplay=1</link>
   </songs>
   <songs>
     <id>2</id>
-    <artist>PSY</artist>
-    <song>Gangnam Style</song>
-    <duration>4:12</duration>
+    <artist>DJ Khaled - ft. Justin Bieber, Quavo, Chance the Rapper, Lil Wayne</artist>
+    <song> I'm the One</song>
+    <duration>5:21</duration>
     <category>Pop</category>
-    <year>2012</year>
+    <year>2017</year>
+    <link>https://www.youtube.com/embed/weeI1G46q0o?autoplay=1</link>
   </songs>
   <songs>
     <id>3</id>
-    <artist>Metallica</artist>
-    <song>Enter Sandman</song>
-    <duration>5:30</duration>
-    <category>Heavy Metal</category>
-    <year>1991</year>
+    <artist>Bruno mars</artist>
+    <song>That’s What I Like</song>
+    <duration>3:30</duration>
+    <category>pop</category>
+    <year>2017</year>
+    <link>https://www.youtube.com/embed/PMivT7MJ41M?autoplay=1</link>
   </songs>
   <songs>
     <id>4</id>
-    <artist>Rammstein</artist>
-    <song>Du Hast</song>
-    <duration>3:55</duration>
-    <category>Rock</category>
-    <year>1997</year>
+    <artist>DJ Khaled -  ft. Rihanna, Bryson Tiller</artist>
+    <song>Wild Thoughts</song>
+    <duration>3:35</duration>
+    <category>pop</category>
+    <year>2017</year>
+    <link>https://www.youtube.com/embed/fyaI4-5849w?autoplay=1</link>
   </songs>
   <songs>
     <id>5</id>
-    <artist>Laserkraft 3D</artist>
-    <song>Nein Mann</song>
-    <duration>3:51</duration>
+    <artist>Ed Sheeran</artist>
+    <song>Shape of You</song>
+    <duration>4:23</duration>
     <category>Pop</category>
-    <year>2011</year>
+    <year>2017</year>
+    <link>https://www.youtube.com/embed/JGwWNGJdvx8?autoplay=1</link>
   </songs>
 </playlist>

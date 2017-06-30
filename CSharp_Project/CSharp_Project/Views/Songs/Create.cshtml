@@ -1,23 +1,19 @@
 ﻿@using System.Data;
 @using CSharp_Project.Models;
-@{ 
+@{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     Songs song = new Songs();
 
 
-
     if (IsPost)
     {
-       song.AddSong();
+        song.AddSong();
     }
 
 
-
-
 }
-
 <h2>Create</h2>
 
 <form method="POST">
@@ -50,6 +46,10 @@
         <tr>
             <td>jaar:</td>
             <td><input type="text" name="year" placeholder="jaar"></td>
+        </tr>
+        <tr>
+            <td>link:</td>
+            <td><input type="text" name="link" placeholder="youtube link"></td>
         </tr>
         <tr>
             <td></td>

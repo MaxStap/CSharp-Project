@@ -1,11 +1,12 @@
-﻿@using System.Data;
+﻿
+@using System.Data;
 @using CSharp_Project.Models;
 @{
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
     Songs song = new Songs();
     string id = Request.QueryString["id"];
-    DataRow dr = song.GetSong(id);
+    
 
 
     if (IsPost)
@@ -17,10 +18,10 @@
 }
 <h2>Delete</h2>
 
-    <form action="" method="post">
-Weet u zeker dat u deze song wil verwijderen?<br/>
-<input type="submit" value="Ja" />
-<a href="Index">Nee</a>
+<form action="" method="post">
+    Weet u zeker dat u deze song wil verwijderen?<br />
+    <input type="submit" value="Ja" />
+    <a href="Index">Nee</a>
 
 </form>
 

@@ -1,28 +1,18 @@
 ﻿@using System.Data;
+@using CSharp_Project.Models;
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    DataSet ds = Session["xmlDataSet"] as DataSet;
-
     string id = Request.QueryString["id"];
-    DataRow[] drArray = ds.Tables[0].Select("id='" + id + "'");
+
+    Songs song = new Songs();
+    DataRow dr = song.GetSong(id);
+
 
     if (IsPost)
     {
-        string a = Request.Form["link"].ToString();
-        string b = a.Replace("watch?v=", "embed/");
-
-        drArray[0]["id"] = Request.Form["id"];
-        drArray[0]["artist"] = Request.Form["artist"];
-        drArray[0]["song"] = Request.Form["song"];
-        drArray[0]["duration"] = Request.Form["duration"];
-        drArray[0]["category"] = Request.Form["category"];
-        drArray[0]["year"] = Request.Form["year"];
-        drArray[0]["link"] = b + (b.IndexOf("autoplay") < 0 ? "?autoplay=1" : "");
-
-
-        ds.WriteXml(Server.MapPath(@"..\App_Data\songs.xml"));
+        song.EditSong(id);
         Response.Redirect("Index");
     }
 }
@@ -32,36 +22,36 @@
     <table>
         <tr>
             <td>id:</td>
-            <td><input type="text" name="id" placeholder="id" value="@drArray[0]["id"]"></td>
+            <td><input type="text" name="id" placeholder="id" value="@dr["id"]"></td>
         </tr>
 
         <tr>
             <td>artist:</td>
-            <td><input type="text" name="artist" placeholder="artist" value="@drArray[0]["artist"]"></td>
+            <td><input type="text" name="artist" placeholder="artist" value="@dr["artist"]"></td>
         </tr>
 
         <tr>
             <td>songnaam:</td>
-            <td><input type="text" name="song" placeholder="songnaam" value="@drArray[0]["song"]"></td>
+            <td><input type="text" name="song" placeholder="songnaam" value="@dr["song"]"></td>
         </tr>
 
         <tr>
             <td>duur:</td>
-            <td><input type="text" name="duration" placeholder="duur" value="@drArray[0]["duration"]"></td>
+            <td><input type="text" name="duration" placeholder="duur" value="@dr["duration"]"></td>
         </tr>
 
         <tr>
             <td>categorie:</td>
-            <td><input type="text" name="category" placeholder="categorie" value="@drArray[0]["category"]"></td>
+            <td><input type="text" name="category" placeholder="categorie" value="@dr["category"]"></td>
         </tr>
 
         <tr>
             <td>jaar:</td>
-            <td><input type="text" name="year" placeholder="jaar" value="@drArray[0]["year"]"></td>
+            <td><input type="text" name="year" placeholder="jaar" value="@dr["year"]"></td>
         </tr>
         <tr>
             <td>link:</td>
-            <td><input type="text" name="link" placeholder="link" value="@drArray[0]["link"]"></td>
+            <td><input type="text" name="link" placeholder="youtulink" value="@dr["link"]"></td>
         </tr>
         <tr>
             <td></td>
